@@ -30,10 +30,10 @@
     Имя должно начинаться с буквы или символа подчеркивания и может содержать
     только буквы, цифры, знаки подчеркивания и тире.
 
-1. Исправленный фрагмент кода и вывод команды docker ps
+5. Исправленный фрагмент кода и вывод команды docker ps
 ![alt text](<images/исправленный фрагмент кода.png>)
 
-1. Замена имени docker-контейнера в блоке кода на ```hello_world```
+6. Замена имени docker-контейнера в блоке кода на ```hello_world```
 ![alt text](images/hello_world.png)
     - Опасность применения ключа  ```-auto-approve```
         - Дословный перевод - ```автоматическое одобрение``` ,  что подразумевает выполнение изменений без запроса подтверждения у пользователя. Это может привести к нежелательным изменениям в production-среде (удаление инфрастуктуры, пересоздание ресурсов) без возможности отмены.
@@ -50,10 +50,16 @@
             - Быстрое тестирование небольших изменений в локальной среде.
             - Только если инфраструктура легко восстанавливается
             
-1. Уничтожение ресурсов
+7. Уничтожение ресурсов
 ![alt text](<images/terraform destroy.png>)
-1. Объяснение, почему при выполнении команды ```terraform destroy``` не был удалён docker-образ nginx:latest
+8. Объяснение, почему при выполнении команды ```terraform destroy``` не был удалён docker-образ nginx:latest
    - В коде файла main.tf при описании ресурса ```docker_image``` указан параметр ```keep_locally = true```
    - Подтверждение из документации: 
         - keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
         - [Ссылка на документацию](https://library.tf/providers/kreuzwerker/docker/latest/docs/resources/image#optional)
+
+### Задание 2*
+![alt text](<images/Задание 2.png>)
+     [Финальный код](main.tf)
+
+### Задание 3*
