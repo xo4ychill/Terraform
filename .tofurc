@@ -1,0 +1,102 @@
+#############################################################
+# Terraform CLI Configuration (Enterprise DevOps)
+# No direct access to Hashicorp registry
+#############################################################
+
+#############################################################
+# Global settings
+#############################################################
+
+disable_checkpoint = true
+disable_checkpoint_signature = true
+
+#############################################################
+# Plugin cache
+#############################################################
+
+plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
+
+#############################################################
+# Provider installation
+#############################################################
+
+provider_installation {
+
+  ###########################################################
+  # Development overrides
+  ###########################################################
+
+  dev_overrides {
+    "*" = "$HOME/.terraform.d/dev-providers"
+  }
+
+  ###########################################################
+  # Local filesystem mirror (offline registry)
+  ###########################################################
+
+  filesystem_mirror {
+    path    = "$HOME/.terraform.d/providers"
+    include = ["*/*"]
+  }
+
+  ###########################################################
+  # Local plugin cache
+  ###########################################################
+
+  filesystem_mirror {
+    path    = "$HOME/.terraform.d/plugin-cache"
+    include = ["*/*"]
+  }
+
+  ###########################################################
+  # Yandex Terraform mirror
+  ###########################################################
+
+  network_mirror {
+    url     = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+
+  ###########################################################
+  # Community mirror
+  ###########################################################
+
+  network_mirror {
+    url     = "https://library.tf/"
+    include = ["registry.terraform.io/*/*"]
+  }
+
+  ###########################################################
+  # OpenTofu registry
+  ###########################################################
+
+  network_mirror {
+    url     = "https://registry.opentofu.org/"
+    include = ["registry.opentofu.org/*/*"]
+  }
+
+  ###########################################################
+  # Disable direct registry access
+  ###########################################################
+
+  direct {
+    exclude = ["*/*"]
+  }
+
+}
+
+#############################################################
+# Registry discovery (only OpenTofu)
+#############################################################
+
+host "registry.opentofu.org" {
+  services = {
+    "providers.v1" = "https://registry.opentofu.org"
+  }
+}
+
+#############################################################
+# CLI behaviour
+#############################################################
+
+credentials_helper "terraform-login" {}
