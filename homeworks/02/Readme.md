@@ -37,8 +37,10 @@
 1. [файл 'vms_platform.tf'](<Task03/src/vms_platform.tf>)
 2. [Вторая ВМ в файле main.tf: "netology-develop-platform-db"](<Task03/src/main.tf>)
 3. ```terraform apply```
-  ![alt text](<Task03/images/Задание 3.png>)
+  - ![alt text](<Task03/images/Задание 3.png>)
 
 ### Задание 4
 - Вывод значений ip-адресов команды terraform output
 - ![alt text](<Task04/images/Задание 4.png>)
+
+### Задание 5
