@@ -4,7 +4,7 @@
 
 1. [Введение в Terraform](homeworks/01/Readme.md)
 
-2. [Основы Terraform. Yandex Cloud]
+2. [Основы Terraform. Yandex Cloud](homeworks/02/Readme.md)
 
 3. [Управляющие конструкции в коде Terraform]
 
