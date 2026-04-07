@@ -2,20 +2,11 @@ output "vm_info" {
 
   description = "Information about all VMs"
 
-  value = {
+output "vm_info" {
 
-    web = {
-      instance_name = yandex_compute_instance.web.name
-      external_ip   = yandex_compute_instance.web.network_interface[0].nat_ip_address
-      fqdn          = yandex_compute_instance.web.fqdn
-    }
-
-    db = {
-      instance_name = yandex_compute_instance.db.name
-      external_ip   = yandex_compute_instance.db.network_interface[0].nat_ip_address
-      fqdn          = yandex_compute_instance.db.fqdn
-    }
-
-  }
-
+  value = [
+    { web = ["ssh -o 'StrictHostKeyChecking=no' ubuntu@${yandex_compute_instance.example-a.network_interface[0].nat_ip_address}", yandex_compute_instance.example-a.network_interface[0].ip_address] },
+    { db = ["ssh -o 'StrictHostKeyChecking=no' ubuntu@${yandex_compute_instance.example-b.network_interface[0].nat_ip_address}", yandex_compute_instance.example-b.network_interface[0].ip_address] },
+  ]
+ }
 }
