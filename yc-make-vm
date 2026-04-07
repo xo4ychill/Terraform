@@ -1,0 +1,10 @@
+# Создание ВМ через yc (2 ГБ RAM, Ubuntu 22.04)
+yc compute instance create \
+  --name docker-host \
+  --zone ru-central1-a \
+  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,size=20GB \
+  --memory 2 \
+  --core-fraction 20 \
+  --cores 2 \
+  --public-ip \
+  --ssh-key ~/.ssh/id_rsa.pub
