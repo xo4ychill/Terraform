@@ -15,15 +15,17 @@ data "yandex_compute_image" "ubuntu" {
 resource "yandex_compute_instance" "platform" {
   name        = "netology-develop-platform-web"
   hostname    = "netology-develop-platform-web"
-  platform_id = "standart-v4"
+  platform_id = "standart-v3"
   resources {
     cores         = 1
     memory        = 1
-    core_fraction = 5
+    core_fraction = 20
   }
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.image_id
+      size     = 10
+      type     = "network-hdd"
     }
   }
   scheduling_policy {
@@ -36,7 +38,7 @@ resource "yandex_compute_instance" "platform" {
 
   metadata = {
     serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
+    ssh-keys           = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
 
 }
