@@ -30,7 +30,7 @@
 ### Задание 2
 1. [Основной код](<Task02/src/main.tf>)
 2. [Переменные](<Task02/src/variables.tf>)
-3. terraform plan
+3. ```terraform plan```
     ![alt text](<Task02/images/Задание 2.png>)
 
 ### Задание 3
@@ -40,7 +40,7 @@
   - ![alt text](<Task03/images/Задание 3.png>)
 
 ### Задание 4
-- Вывод значений ip-адресов команды terraform output
+- Вывод значений ip-адресов команды ```terraform output```
 - ![alt text](<Task04/images/Задание 4.png>)
 
 ### Задание 5
