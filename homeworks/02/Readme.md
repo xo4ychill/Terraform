@@ -1,10 +1,11 @@
 # Домашнее задание к занятию «Основы Terraform. Yandex Cloud»
 
 ### Задание 1
+- [Основной код](<Task01/src/main.tf>)
 - Скриншот ЛК Yandex Cloud с созданной ВМ, где видно внешний ip-адрес.
-![alt text](<images/Задание 1.png>)
+![alt text](<Task01/images/Задание 1.png>)
 - Скриншот консоли, curl где видно внешний ip-адрес.
-![alt text](<images/Задание 1.1.png>)
+![alt text](<Task01/images/Задание 1.1.png>)
 - Описание ошибок в коде:
   - ```Код (main.tf):```
     - Неверное значение параметра ```platform_id = "standart-v4"```
@@ -27,4 +28,17 @@
       - достаточно для лабораторных заданий.
 
 ### Задание 2
+1. [Основной код](<Task02/src/main.tf>)
+2. [Переменные](<Task02/src/variables.tf>)
+3. terraform plan
+    ![alt text](<Task02/images/Задание 2.png>)
 
+### Задание 3
+1. [файл 'vms_platform.tf'](<Task03/src/vms_platform.tf>)
+2. [Вторая ВМ в файле main.tf: "netology-develop-platform-db"](<Task03/src/main.tf>)
+3. ```terraform apply```
+  ![alt text](<Task03/images/Задание 3.png>)
+
+### Задание 4
+- Вывод значений ip-адресов команды terraform output
+- ![alt text](<Task04/images/Задание 4.png>)
