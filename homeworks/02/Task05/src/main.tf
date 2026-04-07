@@ -37,7 +37,7 @@ resource "yandex_vpc_subnet" "develop_b" {
 #################################
 
 data "yandex_compute_image" "ubuntu" {
-  family = var.vm_web_image_family
+  family = var.vm_image_family
 }
 
 #################################
@@ -46,11 +46,11 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "web" {
 
-  name        = var.vm_web_name
-  hostname    = var.vm_web_hostname
-  platform_id = var.vm_web_platform_id
+  name     = local.vm_web_name
+  hostname = local.vm_web_name
 
-  zone = var.default_zone
+  platform_id = var.vm_web_platform_id
+  zone        = var.default_zone
 
   resources {
 
@@ -65,8 +65,8 @@ resource "yandex_compute_instance" "web" {
     initialize_params {
 
       image_id = data.yandex_compute_image.ubuntu.image_id
-      size     = var.vm_web_boot_disk_size
-      type     = var.vm_web_boot_disk_type
+      size     = 10
+      type     = "network-hdd"
 
     }
 
@@ -74,20 +74,20 @@ resource "yandex_compute_instance" "web" {
 
   scheduling_policy {
 
-    preemptible = var.vm_web_preemptible
+    preemptible = true
 
   }
 
   network_interface {
 
     subnet_id = yandex_vpc_subnet.develop_a.id
-    nat       = var.vm_web_nat
+    nat       = true
 
   }
 
   metadata = {
 
-    serial-port-enable = var.vm_web_serial_port_enable
+    serial-port-enable = 1
     ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
 
   }
@@ -100,11 +100,11 @@ resource "yandex_compute_instance" "web" {
 
 resource "yandex_compute_instance" "db" {
 
-  name        = var.vm_db_name
-  hostname    = var.vm_db_hostname
-  platform_id = var.vm_db_platform_id
+  name     = local.vm_db_name
+  hostname = local.vm_db_name
 
-  zone = var.vm_db_zone
+  platform_id = var.vm_db_platform_id
+  zone        = var.vm_db_zone
 
   resources {
 

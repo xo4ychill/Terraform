@@ -1,16 +1,6 @@
-#################################
+################################
 # WEB VM
-#################################
-
-variable "vm_web_name" {
-  type    = string
-  default = "netology-develop-platform-web"
-}
-
-variable "vm_web_hostname" {
-  type    = string
-  default = "netology-develop-platform-web"
-}
+################################
 
 variable "vm_web_platform_id" {
   type    = string
@@ -32,44 +22,9 @@ variable "vm_web_core_fraction" {
   default = 5
 }
 
-variable "vm_web_boot_disk_size" {
-  type    = number
-  default = 10
-}
-
-variable "vm_web_boot_disk_type" {
-  type    = string
-  default = "network-hdd"
-}
-
-variable "vm_web_preemptible" {
-  type    = bool
-  default = true
-}
-
-variable "vm_web_nat" {
-  type    = bool
-  default = true
-}
-
-variable "vm_web_serial_port_enable" {
-  type    = number
-  default = 1
-}
-
-#################################
+################################
 # DB VM
-#################################
-
-variable "vm_db_name" {
-  type    = string
-  default = "netology-develop-platform-db"
-}
-
-variable "vm_db_hostname" {
-  type    = string
-  default = "netology-develop-platform-db"
-}
+################################
 
 variable "vm_db_platform_id" {
   type    = string

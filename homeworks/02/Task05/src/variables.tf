@@ -1,6 +1,6 @@
 ### image vars
 
-variable "vm_web_image_family" {
+variable "vm_image_family" {
   type        = string
   default     = "ubuntu-2004-lts"
   description = "Image family for VM"
