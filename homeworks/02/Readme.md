@@ -57,3 +57,5 @@
    [main.tf](Task06/src/main.tf)
 3. Закоментированны все, более не используемые переменные проекта.
    [vms_platform.tf](Task06/src/vms_platform.tf)
+
+### Задание 7*
