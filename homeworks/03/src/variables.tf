@@ -30,3 +30,36 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "service_account_key_file" {
+  type = string
+}
+
+
+# Metadata
+variable "metadata" {
+  description = "Common metadata for all VMs"
+  type        = map(string)
+}
+
+# Ресурсы WEB VM
+variable "vms_resources" {
+  description = "Resources for all VMs"
+  type = map(object({
+    cores         = number
+    memory        = number
+    core_fraction = number
+    hdd_size      = number
+    hdd_type      = string
+  }))
+}
+
+# Параметры DB VM 
+variable "each_vm" {
+  type = list(object({
+    vm_name     = string
+    cpu         = number
+    ram         = number
+    disk_volume = number
+  }))
+}
