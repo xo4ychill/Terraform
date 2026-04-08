@@ -38,6 +38,7 @@
 2. [Вторая ВМ в файле main.tf: "netology-develop-platform-db"](<Task03/src/main.tf>)
 3. ```terraform apply```
   - ![alt text](<Task03/images/Задание 3.png>)
+  - ![alt text](<Task03/images/Задание 3.1.png>)
 
 ### Задание 4
 - Вывод значений ip-адресов команды ```terraform output```
@@ -50,3 +51,9 @@
    ![alt text](<Task05/images/Задание 5.png>)
 
 ### Задание 6
+1. map-переменная ```vms_resources```
+   [variables.tf](Task06/src/variables.tf)
+2. Переменную для блока ```metadata``` общая для всех ВМ(описана в ```personal.auto.tfvars```)
+   [main.tf](Task06/src/main.tf)
+3. Закоментированны все, более не используемые переменные проекта.
+   [vms_platform.tf](Task06/src/vms_platform.tf)
