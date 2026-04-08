@@ -66,3 +66,11 @@
 
    
 ### Задание 8*
+
+### Задание 9*
+- Финальный код:
+    - [main.tf](Task09/src/main.tf)
+    - [variables.tf](Task09/src/variables.tf)
+    - [vms_platform.tf](Task09/src/vms_platform.tf)
+    - [locals.tf](Task09/src/locals.tf)
+    - [output.tf](Task09/src/outputs.tf)
