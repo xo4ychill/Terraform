@@ -5,6 +5,7 @@
 ![alt text](images/1.png)
 
 ### Задание 2
+
 ![alt text](images/2.png)
 
 ### Задание 3
