@@ -59,3 +59,10 @@
    [vms_platform.tf](Task06/src/vms_platform.tf)
 
 ### Задание 7*
+- ![alt text](<Task07/images/Задание 7.1.png>)
+- ![alt text](<Task07/images/Задание 7.2.png>)
+- ![alt text](<Task07/images/Задание 7.3.png>)
+- ![alt text](<Task07/images/Задание 7.4.png>)
+
+   
+### Задание 8*
