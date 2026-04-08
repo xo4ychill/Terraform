@@ -68,6 +68,8 @@
 ### Задание 8*
 
 ### Задание 9*
+![alt text](Task09/images/9.png)
+![alt text](Task09/images/9.1.png)
 - Финальный код:
     - [main.tf](Task09/src/main.tf)
     - [variables.tf](Task09/src/variables.tf)
