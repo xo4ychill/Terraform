@@ -44,3 +44,9 @@
 - ![alt text](<Task04/images/Задание 4.png>)
 
 ### Задание 5
+1. Файл [locals.tf](Task05/src/locals.tf)
+2. Переменные внутри ресурса ВМ [main.tf](Task05/src/main.tf)
+3. ```terraform apply```
+   ![alt text](<Task05/images/Задание 5.png>)
+
+### Задание 6
