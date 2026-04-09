@@ -2,6 +2,7 @@ resource "yandex_compute_instance" "db" {
   for_each = { for vm in var.each_vm : vm.vm_name => vm }
 
   name        = each.value.vm_name
+  hostname    = each.value.vm_name
   platform_id = "standard-v3"
 
   resources {
@@ -25,9 +26,9 @@ resource "yandex_compute_instance" "db" {
   scheduling_policy {
     preemptible = true
   }
-  
+
   allow_stopping_for_update = true
-  
+
   metadata = merge(
     var.metadata,
     {

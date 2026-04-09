@@ -6,7 +6,7 @@
 
 2. [Основы Terraform. Yandex Cloud](homeworks/02/Readme.md)
 
-3. [Управляющие конструкции в коде Terraform]
+3. [Управляющие конструкции в коде Terraform](homeworks/03/Readme.md)
 
 4. [Продвинутые методы работы с Terraform]
 
