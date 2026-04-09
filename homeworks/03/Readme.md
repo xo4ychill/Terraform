@@ -16,7 +16,5 @@
 ![alt text](images/4.png)
 
 ### Задание 5*
+![alt text](images/5.png)
 - [output.tf](src/outputs.tf)
-  ![alt text](images/5.png)
-
-### Задание 6*
