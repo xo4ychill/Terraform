@@ -8,12 +8,14 @@
 - [count-vm.tf](src/count-vm.tf)
 - [for_each-vm.tf](src/for_each-vm.tf)
 - [locals.tf](src/locals.tf)
+- [data-source.tf](src/data-source.tf)
 
 ### Задание 3
 - [disk_vm.tf](src/disk_vm.tf)
   
 ### Задание 4
 ![alt text](images/4.png)
+- [ansible.tf](src/ansible.tf)
 
 ### Задание 5*
 ![alt text](images/5.png)
