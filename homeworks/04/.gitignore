@@ -8,7 +8,7 @@
 # Crash log files
 crash.log
 
-# Terraform CLI configuration files
+# Terraform CLI configuration files (почему поппало в git?)
 .terraformrc
 terraform.rc
 

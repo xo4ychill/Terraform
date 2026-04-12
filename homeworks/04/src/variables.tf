@@ -1,28 +1,17 @@
-###cloud vars
-variable "token" {
-  type        = string
-  description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
-}
-
 variable "cloud_id" {
+  description = "ID облака Yandex Cloud"
   type        = string
-  description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
 }
 
 variable "folder_id" {
+  description = "ID каталога Yandex Cloud"
   type        = string
-  description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
 variable "default_zone" {
+  description = "Зона доступности"
   type        = string
   default     = "ru-central1-a"
-  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
-}
-variable "default_cidr" {
-  type        = list(string)
-  default     = ["10.0.1.0/24"]
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
 
 variable "vpc_name" {
@@ -31,27 +20,24 @@ variable "vpc_name" {
   description = "VPC network&subnet name"
 }
 
-###common vars
-
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "your_ssh_ed25519_key"
-  description = "ssh-keygen -t ed25519"
+variable "service_account_key_file" {
+  type = string
 }
 
-###example vm_web var
-variable "vm_web_name" {
+variable "ssh_public_key" {
+  description = "Публичный SSH-ключ для доступа к ВМ"
   type        = string
-  default     = "netology-develop-platform-web"
-  description = "example vm_web_ prefix"
+  sensitive   = true
 }
 
-###example vm_db var
-variable "vm_db_name" {
+variable "image_family" {
+  description = "Семейство образа ОС"
   type        = string
-  default     = "netology-develop-platform-db"
-  description = "example vm_db_ prefix"
+  default     = "ubuntu-2204-lts"
 }
 
-
-
+variable "subnet_name" {
+  description = "Имя подсети (должна существовать)"
+  type        = string
+  default     = "develop"
+}
