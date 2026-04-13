@@ -83,7 +83,10 @@ module "mysql" {
   db_user        = var.mysql_user
 
   # Пароль: из переменной или из LockBox
-  db_password = var.use_lockbox ? data.yandex_lockbox_secret_version.mysql_password.payload["password"] : var.mysql_password
+  #db_password = var.use_lockbox ? data.yandex_lockbox_secret_version.mysql_password.payload["password"] : var.mysql_password
+  #db_password = var.use_lockbox ? data.yandex_lockbox_secret_version.mysql_password[0].payload["password"] : var.mysql_password
+  db_password = var.use_lockbox ? data.yandex_lockbox_secret_version.mysql_password[count.index].payload["password"] : var.mysql_password
+
 
   environment = var.environment
 }
