@@ -1,0 +1,4 @@
+- hosts: mirror
+  become: yes
+  roles:
+    - mirror

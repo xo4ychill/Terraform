@@ -1,0 +1,33 @@
+# ======================================================================
+# Docker Compose — развёртывание web-приложения
+# Приложение подключается к MySQL в Yandex Cloud Managed Database
+# ======================================================================
+version: "3.9"
+
+services:
+  web:
+    image: ${REGISTRY_URL}/app:latest
+    container_name: web-app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      # Подключение к MySQL (Yandex Cloud Managed Database)
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  app-network:
+    driver: bridge

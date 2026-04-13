@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Итоговый проект — Terraform + Docker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Итоговый проект</h1>
+            <p class="subtitle">Terraform + Docker + Yandex Cloud</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>📋 О проекте</h2>
+                <p>Демонстрация развёртывания web-приложения в контейнере Docker
+                   на виртуальной машине Yandex Cloud, управляемой через Terraform.</p>
+            </section>
+
+            <section class="card">
+                <h2>🛠️ Использованные технологии</h2>
+                <ul>
+                    <li><strong>Terraform</strong> — Infrastructure as Code</li>
+                    <li><strong>Docker</strong> — Контейнеризация приложения</li>
+                    <li><strong>Docker Compose</strong> — Оркестрация контейнеров</li>
+                    <li><strong>Yandex Cloud</strong> — Облачная платформа</li>
+                    <li><strong>MySQL</strong> — Managed Database</li>
+                    <li><strong>Container Registry</strong> — Хранение Docker-образов</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>🔗 Ссылки</h2>
+                <ul>
+                    <li><a href="/info.php">Статус подключения к MySQL</a></li>
+                    <li><a href="https://github.com/xo4ychill/terraform-04" target="_blank">Репозиторий GitHub</a></li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>✅ Чек-лист готовности</h2>
+                <table class="checklist">
+                    <tr><td>☑</td><td>Инфраструктура описана без хардкода</td></tr>
+                    <tr><td>☑</td><td>State хранится удалённо (S3)</td></tr>
+                    <tr><td>☑</td><td>Подключён state locking</td></tr>
+                    <tr><td>☑</td><td>Docker установлен через cloud-init</td></tr>
+                    <tr><td>☑</td><td>Docker Compose установлен через cloud-init</td></tr>
+                    <tr><td>☑</td><td>Dockerfile включает мультисборку</td></tr>
+                    <tr><td>☑</td><td>Образ сохранён в Container Registry</td></tr>
+                    <tr><td>☑</td><td>Приложение доступно по IP-адресу ВМ</td></tr>
+                    <tr><td>☑</td><td>Создан MD-файл с документацией</td></tr>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 — Итоговый проект DevOps</p>
+        </footer>
+    </div>
+</body>
+</html>

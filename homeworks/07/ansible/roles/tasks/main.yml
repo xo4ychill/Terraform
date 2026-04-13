@@ -1,0 +1,32 @@
+- name: Install packages
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+      - awscli
+    update_cache: yes
+
+- name: Create dir
+  file:
+    path: /opt/mirror
+    state: directory
+
+- name: Copy docker-compose
+  template:
+    src: docker-compose.yml.j2
+    dest: /opt/mirror/docker-compose.yml
+
+- name: Copy nginx
+  template:
+    src: nginx.conf.j2
+    dest: /opt/mirror/nginx.conf
+
+- name: Copy prometheus
+  template:
+    src: prometheus.yml.j2
+    dest: /opt/mirror/prometheus.yml
+
+- name: Start stack
+  command: docker-compose up -d
+  args:
+    chdir: /opt/mirror
