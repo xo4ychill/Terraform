@@ -1,34 +1,30 @@
-# ==================== OUTPUTS ====================
-# Вывод значений после terraform apply
+# ======================================================================
+# outputs.tf — Вывод результатов после terraform apply
+# ======================================================================
 
 output "vm_external_ip" {
-  description = "Внешний IP-адрес ВМ с приложением"
+  description = "Внешний IP-адрес ВМ (для доступа по SSH/HTTP)"
   value       = module.app_vm.external_ip
 }
 
 output "vm_internal_ip" {
-  description = "Внутренний IP-адрес ВМ"
+  description = "Внутренний IP-адрес ВМ (для связи с MySQL)"
   value       = module.app_vm.internal_ip
 }
 
-output "mysql_cluster_id" {
-  description = "ID кластера MySQL"
-  value       = module.mysql.cluster_id
-}
-
-output "mysql_db_host" {
-  description = "Хост подключения к MySQL"
-  value       = module.mysql.db_host
+output "mysql_connection_string" {
+  description = "Строка подключения к MySQL (без пароля)"
+  value       = "mysql://${var.mysql_user}@${module.mysql.db_host}:${module.mysql.db_port}/${var.mysql_db_name}"
   sensitive   = true
 }
 
-output "mysql_db_port" {
-  description = "Порт подключения к MySQL"
-  value       = module.mysql.db_port
+output "mysql_cluster_id" {
+  description = "ID кластера Managed MySQL"
+  value       = module.mysql.cluster_id
 }
 
 output "registry_url" {
-  description = "URL Container Registry"
+  description = "URL Container Registry для docker push/pull"
   value       = yandex_container_registry.app_registry.url
 }
 
@@ -54,5 +50,11 @@ output "subnet_id" {
 
 output "lockbox_secret_id" {
   description = "ID секрета в LockBox (если используется)"
-  value       = try(yandex_lockbox_secret.mysql_secret[0].id, null)
+  value       = var.use_lockbox ? var.lockbox_secret_id : null
+}
+
+# 💡 Полезная команда для проверки
+output "health_check_command" {
+  description = "Команда для проверки доступности приложения"
+  value       = "curl -f http://${module.app_vm.external_ip}/ || echo 'Приложение недоступно'"
 }

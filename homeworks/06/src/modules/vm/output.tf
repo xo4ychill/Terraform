@@ -1,14 +1,11 @@
-output "external_ip" {
-  description = "Внешний IP-адрес ВМ"
-  value       = yandex_compute_instance.vm.network_interface.0.nat_ip_address
+output "cluster_id" {
+  value = yandex_mdb_mysql_cluster.cluster.id
 }
 
-output "internal_ip" {
-  description = "Внутренний IP-адрес ВМ"
-  value       = yandex_compute_instance.vm.network_interface.0.ip_address
+output "db_host" {
+  value = yandex_mdb_mysql_cluster.cluster.host[0].fqdn
 }
 
-output "vm_id" {
-  description = "ID виртуальной машины"
-  value       = yandex_compute_instance.vm.id
+output "db_port" {
+  value = 3306
 }

@@ -42,8 +42,14 @@ resource "yandex_mdb_mysql_cluster" "cluster" {
     assign_public_ip = false  # MySQL не должен иметь публичный IP
   }
 
+  security_group_ids = var.security_group_ids
+
   labels = {
     environment = var.environment
+  }
+  
+  lifecycle {
+    prevent_destroy = true
   }
 }
 
@@ -51,6 +57,8 @@ resource "yandex_mdb_mysql_cluster" "cluster" {
 resource "yandex_mdb_mysql_database" "database" {
   cluster_id = yandex_mdb_mysql_cluster.cluster.id
   name       = var.db_name
+  charset    = "utf8mb4"
+  collation  = "utf8mb4_unicode_ci"
 }
 
 # --- Пользователь базы данных ---
@@ -66,4 +74,11 @@ resource "yandex_mdb_mysql_user" "user" {
 
   # Глобальные привилегии
   global_permissions = ["PROCESS", "REPLICATION_CLIENT"]
+
+  connection_limits {
+    max_questions_per_hour   = 0
+    max_updates_per_hour     = 0
+    max_connections_per_hour = 0
+    max_user_connections     = 10
+  }
 }

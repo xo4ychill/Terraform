@@ -1,5 +1,5 @@
 output "network_id" {
-  description = "ID облачной сети"
+  description = "ID сети"
   value       = yandex_vpc_network.network.id
 }
 
